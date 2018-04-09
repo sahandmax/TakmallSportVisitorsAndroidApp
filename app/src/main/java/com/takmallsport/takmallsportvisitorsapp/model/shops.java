@@ -8,8 +8,13 @@ public class shops {
 
     private String address;
     private String telephone;
-
     private String name;
+
+    public shops(String address, String telephone, String name) {
+        this.address = address;
+        this.telephone = telephone;
+        this.name = name;
+    }
 
     public String getName() {
         return name;

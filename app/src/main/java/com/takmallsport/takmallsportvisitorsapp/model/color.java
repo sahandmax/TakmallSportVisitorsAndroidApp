@@ -7,4 +7,21 @@ package com.takmallsport.takmallsportvisitorsapp.model;
 public class color {
     private String name;
     private String id;
+    
+    public color(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+
+
+
 }
