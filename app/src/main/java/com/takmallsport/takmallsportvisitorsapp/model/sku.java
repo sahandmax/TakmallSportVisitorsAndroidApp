@@ -5,6 +5,13 @@ package com.takmallsport.takmallsportvisitorsapp.model;
  */
 
 public class sku {
+    public final static String TABLE_NAME = "sku";
+
+    public final static String COLUMN_SIZE_NAME = "size_name";
+    public final static String COLUMN_SIZE_ID = "size_id";
+    public final static String COLUMN_COLOR_NAME = "color_name";
+    public final static String COLUMN_COLOR_ID = "color_id";
+    public final static String COLUMN_SKU = "sku";
     private String size_name;
     private String size_id;
     private String color_name;

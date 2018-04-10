@@ -5,6 +5,11 @@ package com.takmallsport.takmallsportvisitorsapp.model;
  */
 
 public class shops {
+    public final static String TABLE_NAME = "shops";
+
+    public final static String COLUMN_ADDRESS = "address";
+    public final static String COLUMN_TELEPHONE = "telephone";
+    public final static String COLUMN_NAME = "name";
 
     private String address;
     private String telephone;

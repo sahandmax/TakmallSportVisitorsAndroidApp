@@ -5,6 +5,14 @@ package com.takmallsport.takmallsportvisitorsapp.model;
  */
 
 public class relations {
+    public final static String TABLE_NAME = "relations";
+
+    public final static String COLUMN_SKU = "sku";
+    public final static String COLUMN_CODE = "code";
+    public final static String COLUMN_SHOPNAME = "shopname";
+    public final static String COLUMN_PRICE = "price";
+    public final static String COLUMN_STOCK = "stock";
+
     private String sku;
     private String code;
     private String shopname;

@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TakmallSportVisitorsApp</string>
+    <string name="anbar_gardani">انبارگردانی</string>
+    <string name="check_products">انبارگردانی</string>
+    <string name="search_a_good">جست و جوی یک محصول</string>
+    <string name="connect_to_computer">اتصال به کامپیوتر</string>
+    <string name="about_developer">درباره ی توسعه دهنده</string>
 </resources>

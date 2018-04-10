@@ -5,6 +5,10 @@ package com.takmallsport.takmallsportvisitorsapp.model;
  */
 
 public class size {
+    public final static String TABLE_NAME = "size";
+
+    public final static String COLUMN_NAME = "name";
+    public final static String COLUMN_ID = "id";
     private String name;
     private String id;
 
