@@ -1,5 +1,6 @@
-package com.takmallsport.takmallsportvisitorsapp.ui.ShopListActivity;
+package com.takmallsport.takmallsportvisitorsapp.ui.ShopsList;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,9 +9,6 @@ import android.support.v7.widget.RecyclerView;
 
 import com.takmallsport.takmallsportvisitorsapp.R;
 import com.takmallsport.takmallsportvisitorsapp.adapter.shopsAdapter;
-import com.takmallsport.takmallsportvisitorsapp.model.shops;
-
-import java.util.ArrayList;
 
 public class ShopsListActivity extends AppCompatActivity implements ShopsListView {
     ShopsListPresenter shopsListPresenter;
@@ -32,6 +30,11 @@ public class ShopsListActivity extends AppCompatActivity implements ShopsListVie
 
     @Override
     public Context getContext() {
+        return this;
+    }
+
+    @Override
+    public Activity getActivity() {
         return this;
     }
 }

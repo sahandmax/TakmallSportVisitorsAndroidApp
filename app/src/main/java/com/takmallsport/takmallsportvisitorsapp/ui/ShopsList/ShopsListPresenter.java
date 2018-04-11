@@ -1,4 +1,4 @@
-package com.takmallsport.takmallsportvisitorsapp.ui.ShopListActivity;
+package com.takmallsport.takmallsportvisitorsapp.ui.ShopsList;
 
 /**
  * Created by sahand on 4/10/18.

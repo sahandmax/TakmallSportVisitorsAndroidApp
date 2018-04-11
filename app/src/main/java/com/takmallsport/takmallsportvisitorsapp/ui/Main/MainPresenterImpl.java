@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.takmallsport.takmallsportvisitorsapp.R;
-import com.takmallsport.takmallsportvisitorsapp.ui.ShopListActivity.ShopsListActivity;
+import com.takmallsport.takmallsportvisitorsapp.ui.ShopsList.ShopsListActivity;
 
 /**
  * Created by sahand on 4/10/18.
