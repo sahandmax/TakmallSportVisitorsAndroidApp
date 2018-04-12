@@ -5,4 +5,5 @@ package com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts;
  */
 
 public interface ShopCheckProductsPresenter {
+    void onCreate();
 }

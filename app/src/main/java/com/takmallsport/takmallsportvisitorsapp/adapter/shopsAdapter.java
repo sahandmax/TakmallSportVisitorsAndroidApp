@@ -1,6 +1,7 @@
 package com.takmallsport.takmallsportvisitorsapp.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 public class shopsAdapter extends RecyclerView.Adapter<shopsAdapter.ViewHolder> {
     ArrayList<shops> shop;
     Context context;
+    OnClickListener onClickListener;
 
     public shopsAdapter(ArrayList<shops> shop, Context context) {
         this.shop = shop;
@@ -42,12 +44,28 @@ public class shopsAdapter extends RecyclerView.Adapter<shopsAdapter.ViewHolder> 
         return shop.size();
     }
 
-    class ViewHolder extends RecyclerView.ViewHolder {
+    class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView textView_shopName;
+        CardView cardview;
         public ViewHolder(View itemView) {
             super(itemView);
             textView_shopName = itemView.findViewById(R.id.textView_shopName);
-
+            cardview = itemView.findViewById(R.id.cardview);
+            cardview.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            onClickListener.onClick(view,getItemViewType(),getAdapterPosition());
+        }
+    }
+
+
+    public void setOnClickListener(OnClickListener onClickListener) {
+        this.onClickListener = onClickListener;
+    }
+
+    public interface OnClickListener {
+        void onClick(View view,int ViewType , int AdapterPosition);
     }
 }

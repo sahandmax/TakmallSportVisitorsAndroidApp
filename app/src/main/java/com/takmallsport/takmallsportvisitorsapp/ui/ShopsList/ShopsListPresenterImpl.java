@@ -28,6 +28,7 @@ public class ShopsListPresenterImpl implements  ShopsListPresenter{
             shopsListArray = db.getShopList();
             shopsAdapter = new shopsAdapter(shopsListArray, shopsListView.getContext());
             shopsListView.setDataToRecycler(shopsAdapter);
+
         } else {
             try {
                 Thread.sleep(100);

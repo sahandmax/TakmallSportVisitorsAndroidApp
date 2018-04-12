@@ -1,10 +1,12 @@
 package com.takmallsport.takmallsportvisitorsapp.model;
 
+import java.io.Serializable;
+
 /**
  * Created by sahand on 4/9/18.
  */
 
-public class shops {
+public class shops implements Serializable {
     public final static String TABLE_NAME = "shops";
 
     public final static String COLUMN_ADDRESS = "address";
