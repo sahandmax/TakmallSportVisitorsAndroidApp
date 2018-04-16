@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements  MainView, View.O
     @Override
     public void onClick(View view) {
         mainPresenter.onClick(view);
+
     }
 
     @Override

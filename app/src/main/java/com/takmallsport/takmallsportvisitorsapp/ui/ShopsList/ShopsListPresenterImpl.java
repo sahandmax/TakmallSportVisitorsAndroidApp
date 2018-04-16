@@ -39,4 +39,11 @@ public class ShopsListPresenterImpl implements  ShopsListPresenter{
 
         }
     }
+
+    @Override
+    public void setDataToRecycler(shopsAdapter shopsAdapter) {
+        shopsListView.setDataToRecycler(shopsAdapter);
+    }
+
+
 }
