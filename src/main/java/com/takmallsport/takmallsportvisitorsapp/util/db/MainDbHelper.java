@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
+import com.takmallsport.takmallsportvisitorsapp.model.relations;
 import com.takmallsport.takmallsportvisitorsapp.model.shops;
 
 import java.io.File;
@@ -51,5 +52,28 @@ public class MainDbHelper extends SQLiteOpenHelper {
         }
         db.close();
         return shops;
+    }
+
+    public ArrayList<relations> getRelationsFromShop (shops shop) {
+        ArrayList<relations> relations = new ArrayList<>();
+        String selectQuery = "SELECT * FROM " + com.takmallsport.takmallsportvisitorsapp.model.relations.TABLE_NAME +
+                " WHERE " + com.takmallsport.takmallsportvisitorsapp.model.relations.COLUMN_SHOPNAME + " = '" +
+                shops.COLUMN_NAME + "'";
+                SQLiteDatabase db = this.getReadableDatabase();
+                Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                com.takmallsport.takmallsportvisitorsapp.model.relations relation = new relations(
+                        cursor.getString(cursor.getColumnIndex(com.takmallsport.takmallsportvisitorsapp.model.relations.COLUMN_SKU)),
+                        cursor.getString(cursor.getColumnIndex(com.takmallsport.takmallsportvisitorsapp.model.relations.COLUMN_CODE)),
+                        cursor.getString(cursor.getColumnIndex(com.takmallsport.takmallsportvisitorsapp.model.relations.COLUMN_SHOPNAME)),
+                        cursor.getString(cursor.getColumnIndex(com.takmallsport.takmallsportvisitorsapp.model.relations.COLUMN_PRICE)),
+                        cursor.getString(cursor.getColumnIndex(com.takmallsport.takmallsportvisitorsapp.model.relations.COLUMN_STOCK))
+                );
+                relations.add(relation);
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        return relations;
     }
 }
