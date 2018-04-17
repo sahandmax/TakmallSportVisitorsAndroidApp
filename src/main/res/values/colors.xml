@@ -8,4 +8,5 @@
     <color name="Red">#ff0011</color>
     <color name="White">#ffffff</color>
     <color name="buttonBlue">#020093</color>
+    <color name="shopCheckDetailBackColor">#b8020097</color>
 </resources>

@@ -1,7 +1,9 @@
 package com.takmallsport.takmallsportvisitorsapp.ui.ShopsList;
 
+import android.app.Activity;
 import android.content.Context;
 
+import com.takmallsport.takmallsportvisitorsapp.adapter.shopsAdapter;
 import com.takmallsport.takmallsportvisitorsapp.model.shops;
 
 /**
@@ -10,8 +12,11 @@ import com.takmallsport.takmallsportvisitorsapp.model.shops;
 
 public interface ShopsListInteractor {
 
+    void LoadShopsList();
     void OpenSelectedShop(shops shop);
     interface Listener {
         Context getContext();
+        Activity getActivity();
+        void setDataToRecycler(shopsAdapter adapter);
     }
 }

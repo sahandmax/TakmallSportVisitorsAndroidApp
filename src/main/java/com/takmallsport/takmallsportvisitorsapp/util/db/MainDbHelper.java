@@ -58,7 +58,7 @@ public class MainDbHelper extends SQLiteOpenHelper {
         ArrayList<relations> relations = new ArrayList<>();
         String selectQuery = "SELECT * FROM " + com.takmallsport.takmallsportvisitorsapp.model.relations.TABLE_NAME +
                 " WHERE " + com.takmallsport.takmallsportvisitorsapp.model.relations.COLUMN_SHOPNAME + " = '" +
-                shops.COLUMN_NAME + "'";
+                shop.getName() + "'";
                 SQLiteDatabase db = this.getReadableDatabase();
                 Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {

@@ -5,4 +5,17 @@
     <string name="search_a_good">جست و جوی یک محصول</string>
     <string name="connect_to_computer">اتصال به کامپیوتر</string>
     <string name="about_developer">درباره ی توسعه دهنده</string>
+    <string name="ProductDetailsText">SKU : %sku%
+        \n
+    بارکد : %code%
+        \n
+موجودی : %stock%
+        \n
+        نام فروشگاه : %shopname%
+        \n
+        تلفن تماس : %telephone%
+        \n
+        آدرس فروشگاه :‌ %address%
+    </string>
+    <string name="at_this_shop_we_not_have_products">در این فروشگاه محصولی وجود ندارد</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.takmallsport.takmallsportvisitorsapp.ui.ShopsList;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.View;
 
 import com.takmallsport.takmallsportvisitorsapp.adapter.shopsAdapter;
 import com.takmallsport.takmallsportvisitorsapp.model.shops;
@@ -13,10 +15,8 @@ import java.util.ArrayList;
  * Created by sahand on 4/10/18.
  */
 
-public class ShopsListPresenterImpl implements  ShopsListPresenter , ShopsListInteractor.Listener{
+public class ShopsListPresenterImpl implements  ShopsListPresenter , ShopsListInteractor.Listener {
     ShopsListView shopsListView;
-    ArrayList<shops> shopsListArray;
-    shopsAdapter shopsAdapter;
     ShopsListInteractorImpl shopsListInteractor;
     public ShopsListPresenterImpl(ShopsListView shopsListView) {
         this.shopsListView = shopsListView;
@@ -26,21 +26,7 @@ public class ShopsListPresenterImpl implements  ShopsListPresenter , ShopsListIn
 
     @Override
     public void onCreate() {
-        if (new StoragePermisssions().checkAndRequestPermissions(shopsListView.getActivity())) {
-            MainDbHelper db = new MainDbHelper(shopsListView.getContext());
-            shopsListArray = db.getShopList();
-            shopsAdapter = new shopsAdapter(shopsListArray, shopsListView.getContext());
-            shopsListView.setDataToRecycler(shopsAdapter);
-
-        } else {
-            try {
-                Thread.sleep(100);
-                onCreate();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-        }
+        shopsListInteractor.LoadShopsList();
     }
 
     @Override
@@ -51,5 +37,10 @@ public class ShopsListPresenterImpl implements  ShopsListPresenter , ShopsListIn
     @Override
     public Context getContext() {
         return shopsListView.getContext();
+    }
+
+    @Override
+    public Activity getActivity() {
+        return shopsListView.getActivity();
     }
 }
