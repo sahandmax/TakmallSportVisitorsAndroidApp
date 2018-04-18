@@ -5,6 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
+import com.takmallsport.takmallsportvisitorsapp.R;
 import com.takmallsport.takmallsportvisitorsapp.model.change;
 
 import java.io.File;
@@ -29,6 +30,19 @@ public class VisitorDbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
-    
+    public void InsertProductWithNoStock(String sku,Context context) {
+        String SqlQuery = "INSERT INTO " + change.TABLE_NAME + " VALUES ('"+sku+"','product','no-stock','"+context.getString(R.string.change_sku_to_out_of_stock).replace("%SKU%",sku)+"')";
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(SqlQuery);
+        db.close();
+    }
+
+//    public void InsertVariationWithNoStock(String sku,Context context) {
+//
+//        String SqlQuery = "INSERT INTO " + change.TABLE_NAME + " VALUES ('"+sku+"','variation','no-stock','"+context.getString(R.string.change_sku_to_out_of_stock).replace("%SKU%",sku)+"')";
+//        SQLiteDatabase db = this.getWritableDatabase();
+//        db.execSQL(SqlQuery);
+//        db.close();
+//    }
 
 }

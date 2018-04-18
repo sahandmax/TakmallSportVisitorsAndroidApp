@@ -20,4 +20,5 @@
     <string name="at_this_shop_we_not_have_products">در این فروشگاه محصولی وجود ندارد</string>
     <string name="you_finished_products_of_this_shop">شما محصولات این فروشگاه را به پایان رساندید</string>
     <string name="you_are_at_first_of_products">شما در ابتدای فهرست محصولات هستید</string>
+    <string name="change_sku_to_out_of_stock">تغییر موجودی کالا با SKU %SKU% به ناموجود</string>
 </resources>
