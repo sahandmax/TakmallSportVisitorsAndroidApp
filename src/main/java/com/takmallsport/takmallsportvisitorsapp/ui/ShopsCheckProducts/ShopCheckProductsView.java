@@ -12,4 +12,9 @@ public interface ShopCheckProductsView {
     Activity getActivity();
     void LoadDetail(String detail);
     void LoadImageOnImageView(String path);
+    void VisibleDescription();
+    void HideDescription();
+    void AlertFinishOfProducts();
+    void ToastYouAreAtFirstOfProducts();
+    void setTextviewPageSize(String text);
 }

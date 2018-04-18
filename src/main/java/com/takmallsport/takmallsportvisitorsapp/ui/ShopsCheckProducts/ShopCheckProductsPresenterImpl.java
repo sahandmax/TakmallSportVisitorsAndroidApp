@@ -19,7 +19,7 @@ public class ShopCheckProductsPresenterImpl implements  ShopCheckProductsPresent
     ShopCheckProductsView shopCheckProductsView;
     ShopDataInteractor shopDataInteractor;
     ProductImagesInteractor productImagesInteractor;
-    int position;
+
 
 
 
@@ -32,10 +32,10 @@ public class ShopCheckProductsPresenterImpl implements  ShopCheckProductsPresent
 
     @Override
     public void onCreate() {
-        position = 0;
+
         shopDataInteractor.getShopDatas();
         if (shopDataInteractor.getProductsSize() != 0 )
-        shopDataInteractor.getDataForDetail(position);
+        shopDataInteractor.getDataForDetail();
         if (productImagesInteractor.getImagesSize() > 0 )
             productImagesInteractor.LoadImageOnImageView();
     }
@@ -44,14 +44,22 @@ public class ShopCheckProductsPresenterImpl implements  ShopCheckProductsPresent
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_back:
-
+                shopDataInteractor.prevProduct();
+                productImagesInteractor.LoadImageOnImageView();
                 break;
             case R.id.button_not_have:
 
                 break;
             case R.id.button_next:
-                productImagesInteractor.NextPhoto();
+                shopDataInteractor.nextProduct();
+                productImagesInteractor.LoadImageOnImageView();
                 break;
+            case R.id.image_product:
+                shopCheckProductsView.HideDescription();
+                productImagesInteractor.NextPhoto();
+                productImagesInteractor.LoadImageOnImageView();
+                break;
+
         }
     }
 
@@ -59,7 +67,7 @@ public class ShopCheckProductsPresenterImpl implements  ShopCheckProductsPresent
     public void onLongClick(View view) {
         switch (view.getId()){
             case R.id.image_product:
-
+                shopCheckProductsView.VisibleDescription();
                 break;
         }
     }
@@ -74,11 +82,24 @@ public class ShopCheckProductsPresenterImpl implements  ShopCheckProductsPresent
         shopCheckProductsView.LoadDetail(detail);
     }
 
-
-
     @Override
     public void LoadImagesList(relations relation) {
         productImagesInteractor.LoadImagesList(relation);
+    }
+
+    @Override
+    public void AlertFinishOfProducts() {
+        shopCheckProductsView.AlertFinishOfProducts();
+    }
+
+    @Override
+    public void ToastYouAreAtFirstOfProducts() {
+        shopCheckProductsView.ToastYouAreAtFirstOfProducts();
+    }
+
+    @Override
+    public void setTextviewPageSize(String text) {
+        shopCheckProductsView.setTextviewPageSize(text);
     }
 
 

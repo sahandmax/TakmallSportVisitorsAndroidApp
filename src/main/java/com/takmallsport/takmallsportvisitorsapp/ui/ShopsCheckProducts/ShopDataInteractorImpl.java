@@ -25,6 +25,7 @@ public class ShopDataInteractorImpl implements ShopDataInteractor {
     MainDbHelper mainDb;
     ArrayList<relations> relations;
     shops shop;
+    int position;
 
     public ShopDataInteractorImpl(Listener listener) {
         this.listener = listener;
@@ -33,6 +34,7 @@ public class ShopDataInteractorImpl implements ShopDataInteractor {
     }
 
     public void getShopDatas() {
+        position = 0;
         Intent intent = listener.getActivity().getIntent();
         shop = (shops) intent.getSerializableExtra("shop");
         relations = mainDb.getRelationsFromShop(shop);
@@ -42,7 +44,7 @@ public class ShopDataInteractorImpl implements ShopDataInteractor {
         }
     }
 
-    public void getDataForDetail(int position) {
+    public void getDataForDetail() {
         com.takmallsport.takmallsportvisitorsapp.model.relations relation = relations.get(position);
         listener.LoadDetail(context.getString(R.string.ProductDetailsText)
                 .replace("%sku%",relation.getSku())
@@ -52,10 +54,33 @@ public class ShopDataInteractorImpl implements ShopDataInteractor {
                 .replace("%telephone%",shop.getTelephone())
                 .replace("%address%",shop.getAddress()));
         listener.LoadImagesList(relation);
+        setTextviewPageSize();
+    }
+    public void nextProduct() {
+        position = position + 1;
+        if (position > (relations.size() - 1))
+            listener.AlertFinishOfProducts();
+        else
+        getDataForDetail();
+    }
+
+    @Override
+    public void prevProduct() {
+        position = position - 1;
+        if (position < 0) {
+            position = 0;
+            listener.ToastYouAreAtFirstOfProducts();
+        }
+        else
+            getDataForDetail();
     }
 
     @Override
     public int getProductsSize() {
         return relations.size();
+    }
+
+    private void setTextviewPageSize() {
+        listener.setTextviewPageSize((position + 1)+ "/" + relations.size());
     }
 }

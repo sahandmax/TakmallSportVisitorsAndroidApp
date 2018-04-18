@@ -15,12 +15,17 @@ import java.util.ArrayList;
 public interface ShopDataInteractor {
 
     void getShopDatas();
-    void getDataForDetail(int position);
+    void getDataForDetail();
     int getProductsSize();
+    void nextProduct();
+    void prevProduct();
     interface Listener {
         Activity getActivity();
         void LoadDetail(String detail);
         void LoadImagesList(relations relation);
+        void AlertFinishOfProducts();
+        void ToastYouAreAtFirstOfProducts();
+        void setTextviewPageSize(String text);
 
     }
 }
