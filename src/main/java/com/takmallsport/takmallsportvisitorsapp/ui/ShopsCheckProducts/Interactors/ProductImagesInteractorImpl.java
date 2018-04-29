@@ -1,13 +1,10 @@
-package com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts;
+package com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts.Interactors;
 
-import android.app.Application;
 import android.os.Environment;
-import android.widget.ImageView;
 
 import com.takmallsport.takmallsportvisitorsapp.model.relations;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 

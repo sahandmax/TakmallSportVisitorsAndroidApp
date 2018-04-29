@@ -1,4 +1,4 @@
-package com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts;
+package com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts.Interactors;
 
 import android.app.Activity;
 import android.content.Context;
@@ -19,6 +19,8 @@ public interface ShopDataInteractor {
     int getProductsSize();
     void nextProduct();
     void prevProduct();
+    void NotHaveProduct();
+    relations getCurrentData();
     interface Listener {
         Activity getActivity();
         void LoadDetail(String detail);
@@ -26,6 +28,7 @@ public interface ShopDataInteractor {
         void AlertFinishOfProducts();
         void ToastYouAreAtFirstOfProducts();
         void setTextviewPageSize(String text);
+        void NextProduct();
 
     }
 }

@@ -1,19 +1,16 @@
-package com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts;
+package com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts.Interactors;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Environment;
 import android.widget.Toast;
 
 import com.takmallsport.takmallsportvisitorsapp.R;
 import com.takmallsport.takmallsportvisitorsapp.model.relations;
 import com.takmallsport.takmallsportvisitorsapp.model.shops;
 import com.takmallsport.takmallsportvisitorsapp.util.db.MainDbHelper;
+import com.takmallsport.takmallsportvisitorsapp.util.db.VisitorDbHelper;
 
-import java.io.File;
-import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * Created by sahand on 4/17/18.
@@ -23,6 +20,7 @@ public class ShopDataInteractorImpl implements ShopDataInteractor {
     ShopDataInteractor.Listener listener;
     Context context;
     MainDbHelper mainDb;
+    VisitorDbHelper visitorDbHelper;
     ArrayList<relations> relations;
     shops shop;
     int position;
@@ -31,6 +29,7 @@ public class ShopDataInteractorImpl implements ShopDataInteractor {
         this.listener = listener;
         context = listener.getActivity();
         mainDb = new MainDbHelper(listener.getActivity());
+        visitorDbHelper = new VisitorDbHelper(listener.getActivity());
     }
 
     public void getShopDatas() {
@@ -73,6 +72,17 @@ public class ShopDataInteractorImpl implements ShopDataInteractor {
         }
         else
             getDataForDetail();
+    }
+
+    @Override
+    public void NotHaveProduct() {
+        visitorDbHelper.InsertProductWithNoStock(relations.get(position).getSku(),listener.getActivity());
+        listener.NextProduct();
+    }
+
+    @Override
+    public relations getCurrentData() {
+        return relations.get(position);
     }
 
     @Override

@@ -10,4 +10,5 @@ public interface ShopCheckProductsPresenter {
     void onCreate();
     void onClick(View view);
     void onLongClick(View view);
+    void NextProduct();
 }

@@ -2,14 +2,10 @@ package com.takmallsport.takmallsportvisitorsapp.ui.ShopsList;
 
 import android.app.Activity;
 import android.content.Context;
-import android.view.View;
 
 import com.takmallsport.takmallsportvisitorsapp.adapter.shopsAdapter;
-import com.takmallsport.takmallsportvisitorsapp.model.shops;
-import com.takmallsport.takmallsportvisitorsapp.util.db.MainDbHelper;
-import com.takmallsport.takmallsportvisitorsapp.util.StoragePermisssions;
-
-import java.util.ArrayList;
+import com.takmallsport.takmallsportvisitorsapp.ui.ShopsList.Interactors.ShopsListInteractor;
+import com.takmallsport.takmallsportvisitorsapp.ui.ShopsList.Interactors.ShopsListInteractorImpl;
 
 /**
  * Created by sahand on 4/10/18.

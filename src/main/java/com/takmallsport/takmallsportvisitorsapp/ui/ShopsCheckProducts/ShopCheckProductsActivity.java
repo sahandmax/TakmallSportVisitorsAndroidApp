@@ -33,6 +33,7 @@ public class ShopCheckProductsActivity extends AppCompatActivity implements Shop
         findViewById(R.id.button_back).setOnClickListener(this);
         findViewById(R.id.button_not_have).setOnClickListener(this);
         findViewById(R.id.button_next).setOnClickListener(this);
+        findViewById(R.id.button_change_price_and_variations).setOnClickListener(this);
         presenter = new ShopCheckProductsPresenterImpl(this);
         presenter.onCreate();
     }

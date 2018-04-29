@@ -5,8 +5,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 
+import com.google.gson.Gson;
 import com.takmallsport.takmallsportvisitorsapp.R;
 import com.takmallsport.takmallsportvisitorsapp.model.change;
+import com.takmallsport.takmallsportvisitorsapp.model.variation;
 
 import java.io.File;
 
@@ -31,18 +33,44 @@ public class VisitorDbHelper extends SQLiteOpenHelper {
 
     }
     public void InsertProductWithNoStock(String sku,Context context) {
-        String SqlQuery = "INSERT INTO " + change.TABLE_NAME + " VALUES ('"+sku+"','product','no-stock','"+context.getString(R.string.change_sku_to_out_of_stock).replace("%SKU%",sku)+"')";
+
+        String SqlQuery = "INSERT INTO " + change.TABLE_NAME + " VALUES ('"+sku
+                +"','product','no-stock','"+
+                context.getString(R.string.change_product_to_out_of_stock)
+                        .replace("%SKU%",sku)+"')";
+
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL(SqlQuery);
         db.close();
     }
 
-//    public void InsertVariationWithNoStock(String sku,Context context) {
-//
-//        String SqlQuery = "INSERT INTO " + change.TABLE_NAME + " VALUES ('"+sku+"','variation','no-stock','"+context.getString(R.string.change_sku_to_out_of_stock).replace("%SKU%",sku)+"')";
-//        SQLiteDatabase db = this.getWritableDatabase();
-//        db.execSQL(SqlQuery);
-//        db.close();
-//    }
+    public void InsertVariationWithNoStock(String sku , variation variation, Context context) {
+
+        String variation_string = new Gson()
+                .toJson(variation, com.takmallsport.takmallsportvisitorsapp.model.variation.class);
+
+        String SqlQuery = "INSERT INTO " + change.TABLE_NAME
+                + " VALUES ('"+sku+"','variation','"+variation_string+"','"
+                +context.getString(R.string.change_variation_to_out_of_stock).replace("%SKU%",sku)
+                .replace("%size%",variation.getSize().getName()).replace("%color%",variation
+                        .getColor().getName())+"')";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(SqlQuery);
+        db.close();
+    }
+
+    public void ChangePrice(String sku, String price , Context context) {
+
+        String SqlQuery = "INSERT INTO " + change.TABLE_NAME + " VALUES ('"+sku+"','price','"+price+
+                "','"+context.getString(R.string.change_price_to_out_of_stock).replace("%SKU%",sku)
+                .replace("%price%",price)+"')";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(SqlQuery);
+        db.close();
+    }
+
+
 
 }

@@ -22,7 +22,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.ShopsList.ShopsListActivity" />
-        <activity android:name=".ui.ShopsCheckProducts.ShopCheckProductsActivity"></activity>
+        <activity android:name=".ui.ShopsCheckProducts.ShopCheckProductsActivity" />
+        <activity android:name=".ui.CheckPricesAndVariations.CheckPricesAndVariationsActivity" />
+        <activity android:name=".ui.SearchProduct.SearchProductActivity" />
+        <activity android:name=".ui.FoundProduct.FoundProductActivity" />
+        <activity android:name=".ui.Reports.ReportsActivity"></activity>
     </application>
 
 </manifest>

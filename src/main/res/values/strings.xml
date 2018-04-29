@@ -20,5 +20,17 @@
     <string name="at_this_shop_we_not_have_products">در این فروشگاه محصولی وجود ندارد</string>
     <string name="you_finished_products_of_this_shop">شما محصولات این فروشگاه را به پایان رساندید</string>
     <string name="you_are_at_first_of_products">شما در ابتدای فهرست محصولات هستید</string>
-    <string name="change_sku_to_out_of_stock">تغییر موجودی کالا با SKU %SKU% به ناموجود</string>
+    <string name="change_product_to_out_of_stock">تغییر موجودی کالا با SKU %SKU% به ناموجود</string>
+    <string name="change_variation_to_out_of_stock">تغییر موجودی کالا به SKU %SKU% با اندازه %size% و رنگ %color% به ناموجود</string>
+    <string name="change_price_to_out_of_stock">تغییر قیمت کالا با SKU %SKU% به %price%</string>
+    <string name="change_price_and_variations">تغییر قیمت و متغیر ها</string>
+    <string name="save_changes">ذخیره ی تغییرات</string>
+    <string name="price">قیمت</string>
+    <string name="color_is_">رنگ :‌%color%</string>
+    <string name="size_is_">اندازه : ‌%size%</string>
+    <string name="changes_saved_successfully">تنظیمات با موفقیت ذخیره شد</string>
+    <string name="please_enter_product_sku">لطفا SKU محصول را وارد کنید</string>
+    <string name="search">جست و جو</string>
+    <string name="product_not_found">محصول مورد نظر وجود ندارد</string>
+
 </resources>

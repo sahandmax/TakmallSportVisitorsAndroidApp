@@ -1,4 +1,4 @@
-package com.takmallsport.takmallsportvisitorsapp.ui.ShopsList;
+package com.takmallsport.takmallsportvisitorsapp.ui.ShopsList.Interactors;
 
 import android.content.Context;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts;
+package com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts.Interactors;
 
 import com.takmallsport.takmallsportvisitorsapp.model.relations;
 

@@ -9,4 +9,6 @@
     <color name="White">#ffffff</color>
     <color name="buttonBlue">#020093</color>
     <color name="shopCheckDetailBackColor">#b8020097</color>
+    <color name="DarkRed">#7e0008</color>
+    <color name="MelowRed">#b8000c</color>
 </resources>

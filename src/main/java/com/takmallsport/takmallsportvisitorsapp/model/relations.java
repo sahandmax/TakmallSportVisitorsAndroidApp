@@ -1,10 +1,12 @@
 package com.takmallsport.takmallsportvisitorsapp.model;
 
+import java.io.Serializable;
+
 /**
  * Created by sahand on 4/9/18.
  */
 
-public class relations {
+public class relations implements Serializable{
     public final static String TABLE_NAME = "relations";
 
     public final static String COLUMN_SKU = "sku";

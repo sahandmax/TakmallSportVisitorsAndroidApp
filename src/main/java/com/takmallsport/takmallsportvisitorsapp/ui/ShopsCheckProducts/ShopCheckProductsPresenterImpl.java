@@ -1,24 +1,27 @@
 package com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.view.View;
 
 import com.takmallsport.takmallsportvisitorsapp.R;
 import com.takmallsport.takmallsportvisitorsapp.model.relations;
-import com.takmallsport.takmallsportvisitorsapp.model.shops;
-import com.takmallsport.takmallsportvisitorsapp.util.db.MainDbHelper;
-
-import java.util.ArrayList;
+import com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts.Interactors.ProductImagesInteractor;
+import com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts.Interactors.ProductImagesInteractorImpl;
+import com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts.Interactors.ShopCheckProductsIntentsInteractor;
+import com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts.Interactors.ShopCheckProductsIntentsInteractorImpl;
+import com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts.Interactors.ShopDataInteractor;
+import com.takmallsport.takmallsportvisitorsapp.ui.ShopsCheckProducts.Interactors.ShopDataInteractorImpl;
 
 /**
  * Created by sahand on 4/11/18.
  */
 
-public class ShopCheckProductsPresenterImpl implements  ShopCheckProductsPresenter , ShopDataInteractor.Listener , ProductImagesInteractor.Listener{
+public class ShopCheckProductsPresenterImpl implements  ShopCheckProductsPresenter , ShopDataInteractor.Listener , ProductImagesInteractor.Listener ,
+        ShopCheckProductsIntentsInteractor.Listener{
     ShopCheckProductsView shopCheckProductsView;
     ShopDataInteractor shopDataInteractor;
     ProductImagesInteractor productImagesInteractor;
+    ShopCheckProductsIntentsInteractor shopCheckProductsIntentsInteractor;
 
 
 
@@ -27,6 +30,7 @@ public class ShopCheckProductsPresenterImpl implements  ShopCheckProductsPresent
         this.shopCheckProductsView = shopCheckProductsView;
         shopDataInteractor = new ShopDataInteractorImpl(this);
         productImagesInteractor = new ProductImagesInteractorImpl(this);
+        shopCheckProductsIntentsInteractor = new ShopCheckProductsIntentsInteractorImpl(this);
     }
 
 
@@ -48,16 +52,18 @@ public class ShopCheckProductsPresenterImpl implements  ShopCheckProductsPresent
                 productImagesInteractor.LoadImageOnImageView();
                 break;
             case R.id.button_not_have:
-
+                shopDataInteractor.NotHaveProduct();
                 break;
             case R.id.button_next:
-                shopDataInteractor.nextProduct();
-                productImagesInteractor.LoadImageOnImageView();
+                NextProduct();
                 break;
             case R.id.image_product:
                 shopCheckProductsView.HideDescription();
                 productImagesInteractor.NextPhoto();
                 productImagesInteractor.LoadImageOnImageView();
+                break;
+            case R.id.button_change_price_and_variations:
+                shopCheckProductsIntentsInteractor.ChangePriceAndVariations(shopDataInteractor.getCurrentData());
                 break;
 
         }
@@ -70,6 +76,12 @@ public class ShopCheckProductsPresenterImpl implements  ShopCheckProductsPresent
                 shopCheckProductsView.VisibleDescription();
                 break;
         }
+    }
+
+    @Override
+    public void NextProduct() {
+        shopDataInteractor.nextProduct();
+        productImagesInteractor.LoadImageOnImageView();
     }
 
     @Override
