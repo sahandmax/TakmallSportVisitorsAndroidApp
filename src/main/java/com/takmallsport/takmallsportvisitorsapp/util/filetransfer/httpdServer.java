@@ -32,7 +32,7 @@ public class httpdServer extends RouterNanoHTTPD {
         addRoute("/UploadDB",UploadDbHandler.class); // PostFile with File Variable
         addRoute("/UploadDB",UploadDbHandler.class);
         addRoute("/DownloadDB",DownloadDBHandler.class);
-        addRoute("/CleanDeviceHandler",CleanDeviceHandler.class);
+        addRoute("/CleanDevice",CleanDeviceHandler.class);
         addRoute("/GetDeviceName",GetDeviceNameHandler.class);
         addRoute("/SetDeviceName", SetDeviceNameHandler.class);
     }

@@ -30,7 +30,7 @@ public class CleanDeviceHandler extends RouterNanoHTTPD.GeneralHandler {
 
     @Override
     public NanoHTTPD.Response get(RouterNanoHTTPD.UriResource uriResource, Map<String, String> urlParams, NanoHTTPD.IHTTPSession session) {
-        if (ApplicationClass.getContext().deleteFile(Environment.getExternalStorageDirectory() + File.separator + "/" + "change.db"))
+        if (new File(Environment.getExternalStorageDirectory() + "/" + "change.db").delete())
         return NanoHTTPD.newFixedLengthResponse(getStatus(), getMimeType(), "DEVICE_CLEANED");
         else
             return NanoHTTPD.newFixedLengthResponse(getStatus(), getMimeType(), "FAIL");
