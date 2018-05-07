@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TakmallSportVisitorsApp</string>
+    <string name="app_name">تکمال ویزیتور</string>
     <string name="anbar_gardani">انبارگردانی</string>
     <string name="check_products">انبارگردانی</string>
     <string name="search_a_good">جست و جوی یک محصول</string>
@@ -32,5 +32,15 @@
     <string name="please_enter_product_sku">لطفا SKU محصول را وارد کنید</string>
     <string name="search">جست و جو</string>
     <string name="product_not_found">محصول مورد نظر وجود ندارد</string>
+    <string name="delete_change">حذف تغییر</string>
+    <string name="do_you_want_to_delete_">آیا مایل به حذف " %V% " هستید؟</string>
+    <string name="no">خیر</string>
+    <string name="yes">بلی</string>
+    <string name="change_report">گزارش تغییرات</string>
+    <string name="transfer_data_to_computer">انتقال داده ها به کامپیوتر</string>
+    <string name="about_application">درباره نرم افزار</string>
+    <string name="about_application_description"> این اپلیکیشن به سفارش گروه تکمال اسپرت (‌فروشگاه اینترنتی تکمال اسپرت ) طراحی و پیاده سازی شده است . کلیه حقوق این اثر متعلق به نام تجاری تکمال اسپرت می باشد . جهت کسب اطلاعات بیشتر به آدرس زیر مراجعه کنید \n www.takmallsport.com</string>
+    <string name="no_stock">ناموجود</string>
+    <string name="stock">موجود</string>
 
 </resources>

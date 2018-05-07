@@ -9,4 +9,5 @@ import android.app.Activity;
 public interface SearchProductView {
     Activity getActivity();
     void ProductNotFound();
+    String getSearchValue();
 }

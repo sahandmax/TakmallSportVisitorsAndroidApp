@@ -32,7 +32,7 @@ public class SearchProductPresenterImpl implements  SearchProductPresenter , Sea
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button_search:
-
+                searchProductInteractor.ViewProduct(searchProductView.getSearchValue());
                 break;
         }
     }
@@ -44,6 +44,6 @@ public class SearchProductPresenterImpl implements  SearchProductPresenter , Sea
 
     @Override
     public void ProductNotFound() {
-
+        searchProductView.ProductNotFound();
     }
 }

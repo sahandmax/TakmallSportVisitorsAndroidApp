@@ -1,6 +1,7 @@
 package com.takmallsport.takmallsportvisitorsapp.util.db;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
@@ -11,6 +12,7 @@ import com.takmallsport.takmallsportvisitorsapp.model.change;
 import com.takmallsport.takmallsportvisitorsapp.model.variation;
 
 import java.io.File;
+import java.util.ArrayList;
 
 public class VisitorDbHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
@@ -70,6 +72,35 @@ public class VisitorDbHelper extends SQLiteOpenHelper {
         db.execSQL(SqlQuery);
         db.close();
     }
+
+    public void DeleteReport(change report) {
+
+        String SqlQuery = "DELETE FROM " + change.TABLE_NAME + " WHERE "+change.COLUMN_REPORT+
+                " = '"+report.getReport()+"'";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL(SqlQuery);
+        db.close();
+    }
+    public ArrayList<change> GetAllChanges () {
+        ArrayList<change> changes = new ArrayList<>();
+        String SqlQuery = "SELECT * FROM " + change.TABLE_NAME ;
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(SqlQuery , null);
+        if (cursor.moveToFirst()) {
+            do {
+                change changeV = new change(cursor.getString(cursor.getColumnIndex(change.COLUMN_SKU)),
+                        cursor.getString(cursor.getColumnIndex(change.COLUMN_TYPE)),
+                        cursor.getString(cursor.getColumnIndex(change.COLUMN_VALUE)),
+                        cursor.getString(cursor.getColumnIndex(change.COLUMN_REPORT)));
+                changes.add(changeV);
+            } while (cursor.moveToNext());
+        }
+        db.close();
+        return changes;
+    }
+
 
 
 

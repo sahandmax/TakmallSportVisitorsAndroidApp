@@ -14,7 +14,8 @@ import java.util.List;
  * Created by sahand on 4/11/18.
  */
 
-public class StoragePermisssions {
+public class
+StoragePermisssions {
     public static final int REQUEST_ID_MULTIPLE_PERMISSIONS = 1;
     public boolean checkAndRequestPermissions(Activity activity) {
         int writeExternalStorage = ContextCompat.checkSelfPermission(activity,

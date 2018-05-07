@@ -40,7 +40,7 @@ public class reportAdapter extends RecyclerView.Adapter<reportAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         change change = values.get(position);
-
+        holder.textView_report.setText(change.getReport());
     }
 
     @Override
@@ -64,7 +64,7 @@ public class reportAdapter extends RecyclerView.Adapter<reportAdapter.ViewHolder
         }
     }
 
-    public void SetOnclickListener(onClickListener mOnClickListener) {
+    public void setOnclickListener(onClickListener mOnClickListener) {
         this.mOnClickListener = mOnClickListener;
     }
 

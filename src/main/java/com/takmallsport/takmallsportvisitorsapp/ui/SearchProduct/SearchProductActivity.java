@@ -41,4 +41,10 @@ public class SearchProductActivity extends AppCompatActivity implements SearchPr
         Toast.makeText(this,R.string.product_not_found,Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public String getSearchValue() {
+        return textInputLayout_sku.getEditText().getText().toString();
+    }
+
+
 }

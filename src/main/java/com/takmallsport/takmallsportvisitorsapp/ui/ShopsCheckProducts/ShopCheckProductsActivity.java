@@ -51,7 +51,7 @@ public class ShopCheckProductsActivity extends AppCompatActivity implements Shop
     @Override
     public void LoadImageOnImageView(String path) {
         Glide.with(this)
-                .applyDefaultRequestOptions(new RequestOptions().error(R.drawable.takmall).placeholder(R.drawable.takmall).fitCenter())
+                .applyDefaultRequestOptions(new RequestOptions().error(R.drawable.icon_warning).placeholder(R.drawable.takmall).fitCenter())
                 .load(path).into(image_product);
     }
 

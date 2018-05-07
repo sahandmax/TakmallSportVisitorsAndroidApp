@@ -38,6 +38,7 @@ public class FoundProductPresenterImpl implements FoundProductPresenter,ProductI
         switch (view.getId()){
             case R.id.image_product:
                 imagesInteractor.NextPhoto();
+                imagesInteractor.LoadImageOnImageView();
                 break;
         }
     }
@@ -54,11 +55,12 @@ public class FoundProductPresenterImpl implements FoundProductPresenter,ProductI
 
     @Override
     public void LoadDetail(String text) {
-
+        view.LoadDetail(text);
     }
 
     @Override
     public void LoadImagesList(relations relation) {
         imagesInteractor.LoadImagesList(relation);
+        imagesInteractor.LoadImageOnImageView();
     }
 }

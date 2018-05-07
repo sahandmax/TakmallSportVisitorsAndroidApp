@@ -48,7 +48,9 @@ public class ShopDataInteractorImpl implements ShopDataInteractor {
         listener.LoadDetail(context.getString(R.string.ProductDetailsText)
                 .replace("%sku%",relation.getSku())
                 .replace("%code%",relation.getCode())
-                .replace("%stock%",relation.getStock())
+                .replace("%stock%",relation.getStock()
+                        .replace("false",context.getString(R.string.no_stock))
+                        .replace("false",context.getString(R.string.stock)))
                 .replace("%shopname%",relation.getShopname())
                 .replace("%telephone%",shop.getTelephone())
                 .replace("%address%",shop.getAddress()));
