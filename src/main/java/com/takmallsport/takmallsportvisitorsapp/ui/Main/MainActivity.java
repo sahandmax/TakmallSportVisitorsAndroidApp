@@ -6,7 +6,10 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.takmallsport.takmallsportvisitorsapp.R;
 import com.takmallsport.takmallsportvisitorsapp.util.StoragePermisssions;
 
@@ -31,7 +34,6 @@ public class MainActivity extends AppCompatActivity implements  MainView, View.O
         findViewById(R.id.button_connect_to_computer).setOnClickListener(this);
         findViewById(R.id.button_change_report).setOnClickListener(this);
         findViewById(R.id.button_about_application).setOnClickListener(this);
-
     }
 
     @Override
