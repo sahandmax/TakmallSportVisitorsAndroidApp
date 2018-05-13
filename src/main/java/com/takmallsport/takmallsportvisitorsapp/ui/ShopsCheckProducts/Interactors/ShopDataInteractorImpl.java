@@ -50,7 +50,7 @@ public class ShopDataInteractorImpl implements ShopDataInteractor {
                 .replace("%code%",relation.getCode())
                 .replace("%stock%",relation.getStock()
                         .replace("false",context.getString(R.string.no_stock))
-                        .replace("false",context.getString(R.string.stock)))
+                        .replace("true",context.getString(R.string.stock)))
                 .replace("%shopname%",relation.getShopname())
                 .replace("%telephone%",shop.getTelephone())
                 .replace("%address%",shop.getAddress()));
